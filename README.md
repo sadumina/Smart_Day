@@ -9,6 +9,10 @@ signed-in user's profile.
 lib/
   core/
     theme/         # Central light and dark themes
+  data/
+    models/        # Freezed and JSON-serializable domain models
+    repositories/  # Persistence interfaces
+    services/      # Supabase repository implementations
   backend/
     auth/          # Authentication repository
     config/        # Supabase initialization and runtime configuration
@@ -24,6 +28,17 @@ lib/
 The frontend depends on backend repositories instead of calling Supabase
 directly from widgets. This keeps screens focused on presentation and makes
 the data layer easier to test or replace later.
+
+## Step 2: data layer
+
+The data layer currently defines typed `Task`, `Project`, `FocusSession`, and
+`Priority` models. Repository interfaces keep the feature layer independent of
+Supabase, while the `Supabase*Repository` classes provide the current
+implementation.
+
+Run the complete [`supabase/schema.sql`](supabase/schema.sql) in Supabase SQL
+Editor before using task, project, or focus persistence. It creates the tables,
+grants authenticated access, and enables user-scoped Row Level Security.
 
 ## Supabase setup
 
