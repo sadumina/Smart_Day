@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../backend/auth/auth_repository.dart';
+import '../core/theme/app_theme.dart';
 import 'pages/auth_page.dart';
 import 'pages/profile_page.dart';
 
@@ -36,10 +37,10 @@ class MyApp extends StatelessWidget {
     final authRepository = AuthRepository(client);
 
     return MaterialApp(
-      title: 'User Profile',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-      ),
+      title: 'Smart Work',
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
+      themeMode: ThemeMode.system,
       home: StreamBuilder<AuthState>(
         stream: authRepository.authStateChanges,
         builder: (context, snapshot) {

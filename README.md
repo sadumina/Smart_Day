@@ -7,6 +7,8 @@ signed-in user's profile.
 
 ```text
 lib/
+  core/
+    theme/         # Central light and dark themes
   backend/
     auth/          # Authentication repository
     config/        # Supabase initialization and runtime configuration
@@ -14,6 +16,8 @@ lib/
   frontend/
     pages/         # Auth and profile screens
     app.dart       # App shell and auth-based screen selection
+  shared/
+    widgets/       # Reusable Smart Work design-system widgets
   main.dart        # Application entry point
 ```
 
@@ -62,3 +66,7 @@ put a Supabase service-role key in the Flutter app.
 6. Select **Read profile from database** to load the saved value.
 7. Select **Delete profile from database**, then read again to confirm it was
    removed.
+
+If Supabase shows `permission denied for table profiles`, rerun the complete
+[`supabase/schema.sql`](supabase/schema.sql) in the Supabase SQL Editor. The
+script grants the required table privileges and applies Row Level Security.
