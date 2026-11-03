@@ -7,6 +7,7 @@ class SupabaseTaskRepository implements TaskRepository {
   SupabaseTaskRepository(this._client);
 
   final SupabaseClient _client;
+  SupabaseClient get client => _client;
 
   @override
   Future<List<Task>> list({

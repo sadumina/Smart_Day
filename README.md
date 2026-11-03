@@ -40,6 +40,23 @@ Run the complete [`supabase/schema.sql`](supabase/schema.sql) in Supabase SQL
 Editor before using task, project, or focus persistence. It creates the tables,
 grants authenticated access, and enables user-scoped Row Level Security.
 
+## Step 3: Home and Tasks
+
+After signing in, the app opens a productivity shell with Home, Tasks, and
+Profile navigation. Home shows task progress and today's tasks. Tasks supports
+create, update, completion by swipe, deletion by swipe, loading, empty, and
+error states. Task data is persisted through `SupabaseTaskRepository`.
+
+The generated task model expects the `tasks` table columns created by the
+Supabase schema. Run the updated schema before opening the Tasks screen.
+
+## Step 4: Projects and Calendar
+
+Projects can be created, edited, and deleted from the Projects tab. The
+Calendar tab displays task due dates in a month view and lists tasks for the
+selected day. Tasks without a due date are intentionally omitted from the
+calendar.
+
 ## Supabase setup
 
 1. Create a Supabase project.

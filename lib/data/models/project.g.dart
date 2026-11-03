@@ -8,18 +8,18 @@ part of 'project.dart';
 
 _Project _$ProjectFromJson(Map<String, dynamic> json) => _Project(
   id: json['id'] as String,
-  userId: json['userId'] as String,
+  userId: json['user_id'] as String,
   name: json['name'] as String,
   color: json['color'] as String? ?? '#4F46E5',
-  createdAt: DateTime.parse(json['createdAt'] as String),
-  updatedAt: DateTime.parse(json['updatedAt'] as String),
+  createdAt: DateTime.parse(json['created_at'] as String),
+  updatedAt: DateTime.parse(json['updated_at'] as String),
 );
 
 Map<String, dynamic> _$ProjectToJson(_Project instance) => <String, dynamic>{
   'id': instance.id,
-  'userId': instance.userId,
+  'user_id': instance.userId,
   'name': instance.name,
   'color': instance.color,
-  'createdAt': instance.createdAt.toIso8601String(),
-  'updatedAt': instance.updatedAt.toIso8601String(),
+  'created_at': instance.createdAt.toIso8601String(),
+  'updated_at': instance.updatedAt.toIso8601String(),
 };

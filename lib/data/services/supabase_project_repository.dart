@@ -7,6 +7,7 @@ class SupabaseProjectRepository implements ProjectRepository {
   SupabaseProjectRepository(this._client);
 
   final SupabaseClient _client;
+  SupabaseClient get client => _client;
 
   @override
   Future<List<Project>> list(String userId) async {

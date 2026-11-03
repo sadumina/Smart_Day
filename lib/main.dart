@@ -11,6 +11,5 @@ Future<void> main() async {
     return;
   }
 
-  await SupabaseConfig.initialize();
-  runApp(const MyApp());
+  runApp(const SupabaseBootstrapApp());
 }

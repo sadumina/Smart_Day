@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Task {
 
- String get id; String get userId; String get title; String? get description; Priority get priority; DateTime? get dueAt; String? get projectId; String get status; int get completedSubtasks; int get totalSubtasks; DateTime get createdAt; DateTime get updatedAt;
+ String get id;@JsonKey(name: 'user_id') String get userId; String get title; String? get description; Priority get priority;@JsonKey(name: 'due_at') DateTime? get dueAt;@JsonKey(name: 'project_id') String? get projectId; String get status;@JsonKey(name: 'completed_subtasks') int get completedSubtasks;@JsonKey(name: 'total_subtasks') int get totalSubtasks;@JsonKey(name: 'created_at') DateTime get createdAt;@JsonKey(name: 'updated_at') DateTime get updatedAt;
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $TaskCopyWith<$Res>  {
   factory $TaskCopyWith(Task value, $Res Function(Task) _then) = _$TaskCopyWithImpl;
 @useResult
 $Res call({
- String id, String userId, String title, String? description, Priority priority, DateTime? dueAt, String? projectId, String status, int completedSubtasks, int totalSubtasks, DateTime createdAt, DateTime updatedAt
+ String id,@JsonKey(name: 'user_id') String userId, String title, String? description, Priority priority,@JsonKey(name: 'due_at') DateTime? dueAt,@JsonKey(name: 'project_id') String? projectId, String status,@JsonKey(name: 'completed_subtasks') int completedSubtasks,@JsonKey(name: 'total_subtasks') int totalSubtasks,@JsonKey(name: 'created_at') DateTime createdAt,@JsonKey(name: 'updated_at') DateTime updatedAt
 });
 
 
@@ -170,7 +170,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String userId,  String title,  String? description,  Priority priority,  DateTime? dueAt,  String? projectId,  String status,  int completedSubtasks,  int totalSubtasks,  DateTime createdAt,  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'user_id')  String userId,  String title,  String? description,  Priority priority, @JsonKey(name: 'due_at')  DateTime? dueAt, @JsonKey(name: 'project_id')  String? projectId,  String status, @JsonKey(name: 'completed_subtasks')  int completedSubtasks, @JsonKey(name: 'total_subtasks')  int totalSubtasks, @JsonKey(name: 'created_at')  DateTime createdAt, @JsonKey(name: 'updated_at')  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Task() when $default != null:
 return $default(_that.id,_that.userId,_that.title,_that.description,_that.priority,_that.dueAt,_that.projectId,_that.status,_that.completedSubtasks,_that.totalSubtasks,_that.createdAt,_that.updatedAt);case _:
@@ -191,7 +191,7 @@ return $default(_that.id,_that.userId,_that.title,_that.description,_that.priori
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String userId,  String title,  String? description,  Priority priority,  DateTime? dueAt,  String? projectId,  String status,  int completedSubtasks,  int totalSubtasks,  DateTime createdAt,  DateTime updatedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'user_id')  String userId,  String title,  String? description,  Priority priority, @JsonKey(name: 'due_at')  DateTime? dueAt, @JsonKey(name: 'project_id')  String? projectId,  String status, @JsonKey(name: 'completed_subtasks')  int completedSubtasks, @JsonKey(name: 'total_subtasks')  int totalSubtasks, @JsonKey(name: 'created_at')  DateTime createdAt, @JsonKey(name: 'updated_at')  DateTime updatedAt)  $default,) {final _that = this;
 switch (_that) {
 case _Task():
 return $default(_that.id,_that.userId,_that.title,_that.description,_that.priority,_that.dueAt,_that.projectId,_that.status,_that.completedSubtasks,_that.totalSubtasks,_that.createdAt,_that.updatedAt);case _:
@@ -211,7 +211,7 @@ return $default(_that.id,_that.userId,_that.title,_that.description,_that.priori
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String userId,  String title,  String? description,  Priority priority,  DateTime? dueAt,  String? projectId,  String status,  int completedSubtasks,  int totalSubtasks,  DateTime createdAt,  DateTime updatedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'user_id')  String userId,  String title,  String? description,  Priority priority, @JsonKey(name: 'due_at')  DateTime? dueAt, @JsonKey(name: 'project_id')  String? projectId,  String status, @JsonKey(name: 'completed_subtasks')  int completedSubtasks, @JsonKey(name: 'total_subtasks')  int totalSubtasks, @JsonKey(name: 'created_at')  DateTime createdAt, @JsonKey(name: 'updated_at')  DateTime updatedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _Task() when $default != null:
 return $default(_that.id,_that.userId,_that.title,_that.description,_that.priority,_that.dueAt,_that.projectId,_that.status,_that.completedSubtasks,_that.totalSubtasks,_that.createdAt,_that.updatedAt);case _:
@@ -226,21 +226,21 @@ return $default(_that.id,_that.userId,_that.title,_that.description,_that.priori
 @JsonSerializable()
 
 class _Task implements Task {
-  const _Task({required this.id, required this.userId, required this.title, this.description, this.priority = Priority.medium, this.dueAt, this.projectId, this.status = 'todo', this.completedSubtasks = 0, this.totalSubtasks = 0, required this.createdAt, required this.updatedAt});
+  const _Task({required this.id, @JsonKey(name: 'user_id') required this.userId, required this.title, this.description, this.priority = Priority.medium, @JsonKey(name: 'due_at') this.dueAt, @JsonKey(name: 'project_id') this.projectId, this.status = 'todo', @JsonKey(name: 'completed_subtasks') this.completedSubtasks = 0, @JsonKey(name: 'total_subtasks') this.totalSubtasks = 0, @JsonKey(name: 'created_at') required this.createdAt, @JsonKey(name: 'updated_at') required this.updatedAt});
   factory _Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
 
 @override final  String id;
-@override final  String userId;
+@override@JsonKey(name: 'user_id') final  String userId;
 @override final  String title;
 @override final  String? description;
 @override@JsonKey() final  Priority priority;
-@override final  DateTime? dueAt;
-@override final  String? projectId;
+@override@JsonKey(name: 'due_at') final  DateTime? dueAt;
+@override@JsonKey(name: 'project_id') final  String? projectId;
 @override@JsonKey() final  String status;
-@override@JsonKey() final  int completedSubtasks;
-@override@JsonKey() final  int totalSubtasks;
-@override final  DateTime createdAt;
-@override final  DateTime updatedAt;
+@override@JsonKey(name: 'completed_subtasks') final  int completedSubtasks;
+@override@JsonKey(name: 'total_subtasks') final  int totalSubtasks;
+@override@JsonKey(name: 'created_at') final  DateTime createdAt;
+@override@JsonKey(name: 'updated_at') final  DateTime updatedAt;
 
 /// Create a copy of Task
 /// with the given fields replaced by the non-null parameter values.
@@ -277,7 +277,7 @@ abstract mixin class _$TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
   factory _$TaskCopyWith(_Task value, $Res Function(_Task) _then) = __$TaskCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String userId, String title, String? description, Priority priority, DateTime? dueAt, String? projectId, String status, int completedSubtasks, int totalSubtasks, DateTime createdAt, DateTime updatedAt
+ String id,@JsonKey(name: 'user_id') String userId, String title, String? description, Priority priority,@JsonKey(name: 'due_at') DateTime? dueAt,@JsonKey(name: 'project_id') String? projectId, String status,@JsonKey(name: 'completed_subtasks') int completedSubtasks,@JsonKey(name: 'total_subtasks') int totalSubtasks,@JsonKey(name: 'created_at') DateTime createdAt,@JsonKey(name: 'updated_at') DateTime updatedAt
 });
 
 

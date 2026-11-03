@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Project {
 
- String get id; String get userId; String get name; String get color; DateTime get createdAt; DateTime get updatedAt;
+ String get id;@JsonKey(name: 'user_id') String get userId; String get name; String get color;@JsonKey(name: 'created_at') DateTime get createdAt;@JsonKey(name: 'updated_at') DateTime get updatedAt;
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -54,7 +54,7 @@ abstract mixin class $ProjectCopyWith<$Res>  {
   factory $ProjectCopyWith(Project value, $Res Function(Project) _then) = _$ProjectCopyWithImpl;
 @useResult
 $Res call({
- String id, String userId, String name, String color, DateTime createdAt, DateTime updatedAt
+ String id,@JsonKey(name: 'user_id') String userId, String name, String color,@JsonKey(name: 'created_at') DateTime createdAt,@JsonKey(name: 'updated_at') DateTime updatedAt
 });
 
 
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String userId,  String name,  String color,  DateTime createdAt,  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'user_id')  String userId,  String name,  String color, @JsonKey(name: 'created_at')  DateTime createdAt, @JsonKey(name: 'updated_at')  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
 return $default(_that.id,_that.userId,_that.name,_that.color,_that.createdAt,_that.updatedAt);case _:
@@ -185,7 +185,7 @@ return $default(_that.id,_that.userId,_that.name,_that.color,_that.createdAt,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String userId,  String name,  String color,  DateTime createdAt,  DateTime updatedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'user_id')  String userId,  String name,  String color, @JsonKey(name: 'created_at')  DateTime createdAt, @JsonKey(name: 'updated_at')  DateTime updatedAt)  $default,) {final _that = this;
 switch (_that) {
 case _Project():
 return $default(_that.id,_that.userId,_that.name,_that.color,_that.createdAt,_that.updatedAt);case _:
@@ -205,7 +205,7 @@ return $default(_that.id,_that.userId,_that.name,_that.color,_that.createdAt,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String userId,  String name,  String color,  DateTime createdAt,  DateTime updatedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'user_id')  String userId,  String name,  String color, @JsonKey(name: 'created_at')  DateTime createdAt, @JsonKey(name: 'updated_at')  DateTime updatedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
 return $default(_that.id,_that.userId,_that.name,_that.color,_that.createdAt,_that.updatedAt);case _:
@@ -220,15 +220,15 @@ return $default(_that.id,_that.userId,_that.name,_that.color,_that.createdAt,_th
 @JsonSerializable()
 
 class _Project implements Project {
-  const _Project({required this.id, required this.userId, required this.name, this.color = '#4F46E5', required this.createdAt, required this.updatedAt});
+  const _Project({required this.id, @JsonKey(name: 'user_id') required this.userId, required this.name, this.color = '#4F46E5', @JsonKey(name: 'created_at') required this.createdAt, @JsonKey(name: 'updated_at') required this.updatedAt});
   factory _Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
 
 @override final  String id;
-@override final  String userId;
+@override@JsonKey(name: 'user_id') final  String userId;
 @override final  String name;
 @override@JsonKey() final  String color;
-@override final  DateTime createdAt;
-@override final  DateTime updatedAt;
+@override@JsonKey(name: 'created_at') final  DateTime createdAt;
+@override@JsonKey(name: 'updated_at') final  DateTime updatedAt;
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
@@ -265,7 +265,7 @@ abstract mixin class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) _then) = __$ProjectCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String userId, String name, String color, DateTime createdAt, DateTime updatedAt
+ String id,@JsonKey(name: 'user_id') String userId, String name, String color,@JsonKey(name: 'created_at') DateTime createdAt,@JsonKey(name: 'updated_at') DateTime updatedAt
 });
 
 
